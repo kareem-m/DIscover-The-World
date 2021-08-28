@@ -1,0 +1,36 @@
+include includes.pug
+doctype html
+html(lang="en")
+  head
+    +Head("Blog | Discover The World")
+
+  body
+    //- Start nav
+    +nb
+    //- End nav
+    //- Start blog
+    section.blog
+      .max-width
+        h1 Blog | Discover The World
+        .container
+          .box
+            img(src="images/blog_1.jpg", alt="image")
+            .text A 'red-legged monkey' relaxes in a forest in Southeast Asia.
+          .box
+            img(src="images/blog_2.jpg", alt="image")
+            .text The largest river in the world meets but does not merge! The Amazon River and the River Ryeongro The reason is the difference in temperature and speed!
+          .box
+            img(src="images/blog_3.jpg", alt="image")
+            .text An Australian photographer photographing waves as they look like mountains comes to mind likening the Qur’an to waves by saying: (وَهِيَ تَجْرِي بِهِمْ فِي مَوْجٍ كَالْجِبَالِ).
+          .box
+            img(src="images/blog_4.jpg", alt="image")
+            .text Loch Tamal lake, In Scotland
+          .box
+            img(src="images/blog_5.jpg", alt="image")
+            .text A special shot of an owl staring at the viewfinder with tantalizing looks !!!, (Like a flower👌🌹)
+          .box
+            img(src="images/blog_6.jpg", alt="image")
+            .text The very rare Golden Tiger. There are only around 30 still walk on the Earth.#[br]*The last golden tiger has been seen in the wild was in the early of 20th century in India.
+        a(href="https://www.facebook.com/aktashefalaalm", target="_blank") Show More
+    //- End blog
+    +loader()

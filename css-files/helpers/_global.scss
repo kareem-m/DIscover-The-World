@@ -1,0 +1,195 @@
+// Strat variables
+$main-color: #a5dc69;
+$main-background: #f1f1f1;
+// End variables
+// Start global values
+body {
+  background-color: $main-background;
+  color: #fff;
+}
+// End global values
+// Strat nav
+nav {
+  position: sticky;
+  inset: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 99999;
+  .max-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    .logo {
+      font-size: 20px;
+      position: relative;
+      padding-bottom: 10px;
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 2px;
+        background-color: $main-color;
+      }
+      @media (max-width: 360px) {
+        font-size: 16px;
+      }
+      a {
+        color: #fff;
+      }
+    }
+    .links {
+      display: flex;
+      flex-direction: row-reverse;
+      label {
+        font-size: 20px;
+        margin-left: 100px;
+        cursor: pointer;
+      }
+      input {
+        display: none;
+        &:checked {
+          & ~ ul.lmenu {
+            right: 0;
+          }
+        }
+      }
+      ul.menu {
+        display: flex;
+        @media (max-width: 550px) {
+          display: none;
+        }
+        li {
+          position: relative;
+          padding-bottom: 10px;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $main-color;
+            width: 0;
+            height: 2px;
+            transition: 0.3s;
+          }
+          &:hover {
+            &::before {
+              width: 50px;
+            }
+          }
+          a {
+            color: #fff;
+            padding: 0 15px;
+          }
+        }
+      }
+      ul.lmenu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 300px;
+        height: calc(100vh - 70px);
+        padding: 10px;
+        background-color: #fff;
+        color: #000;
+        position: fixed;
+        top: 70px;
+        right: -301px;
+        li {
+          margin-bottom: 50px;
+          padding-bottom: 10px;
+          position: relative;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $main-color;
+            width: 0;
+            height: 2px;
+            transition: 0.3s;
+          }
+          &:hover {
+            &::before {
+              width: 50px;
+            }
+          }
+          a {
+            color: #000;
+          }
+        }
+        div {
+          a {
+            color: #000;
+            padding: 0 10px;
+            transition: 0.2s;
+            &:hover {
+              color: $main-color;
+            }
+          }
+        }
+      }
+      li.active {
+        &::before {
+          width: 50px !important;
+        }
+        a {
+          color: $main-color !important;
+        }
+      }
+    }
+  }
+}
+// End nav
+// Start Loading
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $main-background;
+  z-index: 99999;
+  &.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+    @keyframes fadeOut {
+      100% {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+  .plane {
+    animation: plane 1s linear alternate infinite both;
+    @keyframes plane {
+      100% {
+        transform: translate(20px, -10px);
+      }
+    }
+  }
+  .jet {
+    stroke-dashoffset: 130px;
+    stroke-dasharray: 60 60;
+    animation: jet 2s ease-out reverse infinite both;
+    @keyframes jet {
+      50% {
+        stroke-dashoffset: 130px;
+        stroke-dasharray: 60 60;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        stroke-dasharray: none;
+      }
+    }
+  }
+}
+// End Loading

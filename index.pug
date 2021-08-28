@@ -1,0 +1,22 @@
+include includes.pug
+doctype html
+html(lang="en")
+  head
+    +Head("Discover The World")
+
+  body
+    //- Start nav
+    +nh
+    //- End nav
+    //- Start home
+    section.home
+      video(src="images/landing.mp4", type="video/mp4", autoplay, muted, loop)
+      .overlay
+      .max-width
+        .text
+          h2 Never Stop To
+          h3 Discovering The World
+          p Discover the World is a site for people with high taste and refined sense, as it includes the most beautiful and wonderful pictures and videos, selected from the charming nature.
+          a(href="blog.html") Descover
+    //- End home
+    +loader()
